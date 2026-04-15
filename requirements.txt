@@ -1,5 +1,3 @@
-flask
-pillow
-torch
-transformers
+streamlit
 numpy
+pillow
