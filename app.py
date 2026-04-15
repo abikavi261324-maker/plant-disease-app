@@ -10,7 +10,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image")
 
-    st.write("Analyzing... 🤖")
+    st.write("Analyzing image... 🤖")
 
     img = np.array(image)
     avg = img.mean()
@@ -25,7 +25,6 @@ if uploaded_file is not None:
         result = "🌱 Healthy Plant"
         severity = "Low 🟢"
 
-    st.subheader("Prediction:")
+    st.subheader("Prediction")
     st.success(result)
     st.write("Severity:", severity)
-    
