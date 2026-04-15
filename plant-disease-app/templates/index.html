@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant Disease Detection</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #56ab2f, #a8e063);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #2d2d2d;
+        }
+
+        input[type="file"] {
+            margin: 15px 0;
+            width: 100%;
+            padding: 10px;
+            border: 2px dashed #56ab2f;
+            border-radius: 10px;
+        }
+
+        button {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid #ddd;
+            border-top: 3px solid #56ab2f;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌿 Plant Disease Detector</h1>
+
+    <form action="/predict" method="post" enctype="multipart/form-data" onsubmit="showLoading()">
+
+        <input type="file" name="image" accept="image/*" required>
+
+        <button type="submit">Detect Disease</button>
+
+    </form>
+
+    <div class="loading" id="loading">
+        <span class="spinner"></span>
+        Processing image...
+    </div>
+
+</div>
+
+<script>
+function showLoading() {
+    document.getElementById("loading").style.display = "block";
+}
+</script>
+
+</body>
+</html>
