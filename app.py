@@ -10,8 +10,6 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image")
 
-    st.write("Analyzing image... 🤖")
-
     img = np.array(image)
     avg = img.mean()
 
